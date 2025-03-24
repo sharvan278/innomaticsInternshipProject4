@@ -16,6 +16,7 @@ const DoctorDashboard = () => {
       const response = await axios.get('http://localhost:5000/api/appointments', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
+      console.log("Appointments Data:", response.data);
       setAppointments(response.data);
     } catch (error) {
       toast.error('Failed to fetch appointments');
@@ -66,7 +67,7 @@ const DoctorDashboard = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {appointments.map((appointment) => (
                   <tr key={appointment._id}>
-                    <td className="px-6 py-4 whitespace-nowrap">{appointment.patientName}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">{appointment?.patientId?.name || "N/A"}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{new Date(appointment.date).toLocaleDateString()}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{appointment.timeSlot}</td>
                     <td className="px-6 py-4 whitespace-nowrap">

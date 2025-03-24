@@ -1,0 +1,57 @@
+/* Appointment List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Status Colors */
+ul li span {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-cancelled {
+    color: #d9534f;
+    background: #f8d7da;
+}
+
+.status-confirmed {
+    color: #28a745;
+    background: #d4edda;
+}
+
+.status-pending {
+    color: #ffc107;
+    background: #fff3cd;
+}
+
+/* Cancel Button */
+button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #c0392b;
+}
