@@ -48,6 +48,25 @@ router.get('/', auth, async (req, res, next) => {
   }
 });
 
+router.put('/:id', auth, async (req, res, next) => {
+  try {
+    const { status } = req.body; // Get the new status from request body
+    const appointment = await Appointment.findById(req.params.id);
+
+    if (!appointment) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    appointment.status = status; // Update the status
+    await appointment.save();
+    
+    res.json({ message: 'Appointment status updated', appointment });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 // Cancel Appointment
 router.put('/:id/cancel', auth, async (req, res, next) => {
   try {
